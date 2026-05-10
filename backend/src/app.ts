@@ -5,6 +5,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import { DB_ADDRESS, PORT } from './config';
+import orderRouter from './routes/orders';
 import productRouter from './routes/products';
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/product', productRouter);
+app.use('/order', orderRouter);
 
 mongoose.connect(DB_ADDRESS);
 
